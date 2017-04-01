@@ -6,10 +6,10 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @EnableCaching
-public class PocEhCacheApplication {
+public class SampleEhCacheApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PocEhCacheApplication.class, args);
+        SpringApplication.run(SampleEhCacheApplication.class, args);
     }
 
 }

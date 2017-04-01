@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd"
+         updateCheck="true" monitoring="autodetect" dynamicConfig="true">
+
+    <!-- It configuration has 100 items as maximum that can be stored in memory,
+     with a time to live of 5 minutes (300 seconds). -->
+    <cache name="taskFindAll"
+           maxElementsInMemory="100" eternal="false"
+           overflowToDisk="false"
+           timeToLiveSeconds="300" timeToIdleSeconds="0"
+           memoryStoreEvictionPolicy="LFU" transactionalMode="off">
+    </cache>
+
+</ehcache>
