@@ -1,0 +1,84 @@
+{
+	"variables": [],
+	"info": {
+		"name": "sample-ehcache",
+		"_postman_id": "3e24c794-0bb4-ca75-1ee3-d1ef46b7c77d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/sample-ehcache/task/5001/delete",
+			"request": {
+				"url": "http://localhost:8080/sample-ehcache/task/5001/delete",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/sample-ehcache/task/all",
+			"request": {
+				"url": "localhost:8080/sample-ehcache/task/all",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/sample-ehcache/task/clear-cache",
+			"request": {
+				"url": "http://localhost:8080/sample-ehcache/task/clear-cache",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/sample-ehcache/task/update",
+			"request": {
+				"url": "http://localhost:8080/sample-ehcache/task/update",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":5001,\r\n    \"taskName\":\"Example\",\r\n    \"status\":\"In progress\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/sample-ehcache/task/save",
+			"request": {
+				"url": "localhost:8080/sample-ehcache/task/save",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"taskName\":\"New Example\",\n\t\"status\":\"To do\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
