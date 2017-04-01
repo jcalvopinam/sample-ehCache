@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>sample-ehCache</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Sample of ehCache</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
