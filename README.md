@@ -77,3 +77,18 @@ Rest endpoints
 Or you can import the collection file on _"postman"_ client to test the endpoints, the file is in:
 
   ```/resources/endpoints/collection.json```
+
+How to connect to H2 database?
+---
+
+1. Go to `http://localhost:8080/sample-ehcache/h2-console/`
+2. Setting the following parameters:
+```
+Driver class : org.h2.Driver
+JDBC URL     : jdbc:h2:mem:test
+User Name    : sa
+Password     :
+```
+3. Click on `Test Connection` button, this should return `Test successful`
+4. Click on `Connect` button.
+5. Now you can see the `TASK` table.
