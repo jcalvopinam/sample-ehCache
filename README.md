@@ -2,7 +2,7 @@ ehCache Sample
 ---
 
 This is a sample of ehCache, I used the following technologies:
-* Spring Boot 1.5.2.RELEASE
+* Spring Boot 2.0.6.RELEASE
 * Spring JPA
 * H2
 * ehCache
