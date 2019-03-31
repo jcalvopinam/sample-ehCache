@@ -1,7 +1,8 @@
 package com.jcalvopinam.service;
 
 import com.jcalvopinam.domain.Task;
-import com.jcalvopinam.dto.TaskDTO;
+import com.jcalvopinam.dto.TaskDto;
+import com.jcalvopinam.exception.TaskException;
 
 import java.util.List;
 
@@ -12,11 +13,11 @@ public interface TaskService {
 
     List<Task> findAll();
 
-    void save(TaskDTO taskDTO);
+    Task save(TaskDto taskDTO);
 
-    void update(TaskDTO taskDTO);
+    Task update(Integer taskId, TaskDto taskDTO) throws TaskException;
 
-    void delete(Integer taskId);
+    void delete(Integer taskId) throws TaskException;
 
     void clearCache();
 

@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "0f1ad5e5-b06e-f89e-2f07-7cb242632e9a",
+    "name": "sample-ehcache",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "http://localhost:8080/sample-ehcache/task/5001",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:8080/sample-ehcache/task/5001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "sample-ehcache",
+            "task",
+            "5001"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/sample-ehcache/task",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "localhost:8080/sample-ehcache/task",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "sample-ehcache",
+            "task"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/sample-ehcache/task",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:8080/sample-ehcache/task",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "sample-ehcache",
+            "task"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/sample-ehcache/task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"taskName\":\"Example\",\r\n    \"status\":\"In progress\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/sample-ehcache/task",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "sample-ehcache",
+            "task"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/sample-ehcache/task/5001",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"taskName\":\"New Example\",\n  \"status\":\"To do\"\n}"
+        },
+        "url": {
+          "raw": "localhost:8080/sample-ehcache/task/5001",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "sample-ehcache",
+            "task",
+            "5001"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

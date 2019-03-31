@@ -1,9 +1,12 @@
 package com.jcalvopinam.controller;
 
 import com.jcalvopinam.domain.Task;
-import com.jcalvopinam.dto.TaskDTO;
+import com.jcalvopinam.dto.TaskDto;
+import com.jcalvopinam.exception.TaskException;
 import com.jcalvopinam.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,36 +18,50 @@ import java.util.List;
 @RequestMapping("/task")
 public class TaskController {
 
+    private final TaskService taskService;
+
     @Autowired
-    private TaskService taskService;
-
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public List<Task> findAllTask() {
-        return taskService.findAll();
+    public TaskController(final TaskService taskService) {
+        this.taskService = taskService;
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.PUT)
-    public String saveTask(@RequestBody TaskDTO taskDTO) {
-        taskService.save(taskDTO);
-        return "Saved successfully";
+    @GetMapping
+    public ResponseEntity<List<Task>> findAllTask() {
+        return ResponseEntity.status(HttpStatus.OK)
+                             .body(taskService.findAll());
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateTask(@RequestBody TaskDTO taskDTO) {
-        taskService.update(taskDTO);
-        return "Updated successfully";
+    @PostMapping
+    public ResponseEntity<Task> saveTask(@RequestBody final TaskDto taskDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                             .body(taskService.save(taskDTO));
     }
 
-    @RequestMapping(value = "{taskId}/delete", method = RequestMethod.DELETE)
-    public String deleteTask(@PathVariable("taskId") Integer taskId) {
-        taskService.delete(taskId);
-        return "Deleted successfully";
+    @PutMapping("/{taskId}")
+    public ResponseEntity<Task> updateTask(@PathVariable("taskId") final Integer taskId,
+                                           @RequestBody final TaskDto taskDTO) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK)
+                                 .body(taskService.update(taskId, taskDTO));
+        } catch (TaskException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
-    @RequestMapping(value = "/clear-cache", method = RequestMethod.DELETE)
-    public String clearCache() {
+    @DeleteMapping("/{taskId}")
+    public ResponseEntity<Void> deleteTask(@PathVariable("taskId") final Integer taskId) {
+        try {
+            taskService.delete(taskId);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (TaskException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> clearCache() {
         taskService.clearCache();
-        return "Cache was delete successfully";
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 }
