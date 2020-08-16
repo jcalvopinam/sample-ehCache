@@ -2,10 +2,11 @@ ehCache Sample
 ---
 
 This is a sample of ehCache, I used the following technologies:
-* Spring Boot 2.0.6.RELEASE
+* Spring Boot 2.3.2.RELEASE
 * Spring JPA
 * H2
 * ehCache
+*jUnit5
 
 How to run?
 ---
@@ -31,14 +32,14 @@ Rest endpoints
 * **Request:** Get all Tasks
   
   ```
-  url    : http://localhost:8080/sample-ehcache/task/all
+  url    : http://localhost:8080/sample-ehcache/tasks/all
   method : GET
   ```
 
 * **Request:** Add new Task
   
   ```
-  url    : http://localhost:8080/sample-ehcache/task/save
+  url    : http://localhost:8080/sample-ehcache/tasks/save
   method : PUT
   header : application/json
   body   : {
@@ -50,7 +51,7 @@ Rest endpoints
 * **Request:** Modify a Task
   
   ```
-  url    : http://localhost:8080/sample-ehcache/task/update
+  url    : http://localhost:8080/sample-ehcache/tasks/update
   method : POST
   header : application/json
   body   : {
@@ -63,14 +64,14 @@ Rest endpoints
 * **Request:** Delete a Task
   
   ```
-  url    : http://localhost:8080/sample-ehcache/task/{taskId}/delete
+  url    : http://localhost:8080/sample-ehcache/tasks/{taskId}/delete
   method : DELETE
   ```
 
 * **Request:** Delete the Cache
   
   ```
-  url    : http://localhost:8080/sample-ehcache/task/clear-cache
+  url    : http://localhost:8080/sample-ehcache/tasks/clear-cache
   method : DELETE
   ```
   

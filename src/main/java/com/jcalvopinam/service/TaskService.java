@@ -25,9 +25,7 @@
 
 package com.jcalvopinam.service;
 
-import com.jcalvopinam.domain.Task;
-import com.jcalvopinam.dto.TaskDto;
-import com.jcalvopinam.exception.TaskException;
+import com.jcalvopinam.dto.TaskDTO;
 
 import java.util.List;
 
@@ -36,14 +34,48 @@ import java.util.List;
  */
 public interface TaskService {
 
-    List<Task> findAll();
+    /**
+     * Find all tasks.
+     *
+     * @return a list of TaskDTO.
+     */
+    List<TaskDTO> findAll();
 
-    Task save(TaskDto taskDTO);
+    /**
+     * Find an employee by {code taskName}.
+     *
+     * @param taskName receives the taskName
+     * @return an TaskDTO object.
+     */
+    TaskDTO searchByTaskName(String taskName);
 
-    Task update(Integer taskId, TaskDto taskDTO) throws TaskException;
+    /**
+     * Create a new task.
+     *
+     * @param taskDTO receives an TaskDTO object.
+     * @return an TaskDTO object.
+     */
+    TaskDTO save(TaskDTO taskDTO);
 
-    void delete(Integer taskId) throws TaskException;
+    /**
+     * Creates a new task.
+     *
+     * @param taskId  receives the {@code taskId} to be updated.
+     * @param taskDTO receives an TaskDTO object.
+     * @return an TaskDTO object.
+     */
+    TaskDTO update(Integer taskId, TaskDTO taskDTO);
 
+    /**
+     * Deletes a task by {@code taskId}.
+     *
+     * @param taskId receives the {@code taskId} to be deleted.
+     */
+    void delete(Integer taskId);
+
+    /**
+     * Clean the cache
+     */
     void clearCache();
 
 }

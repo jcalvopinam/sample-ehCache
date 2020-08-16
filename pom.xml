@@ -5,7 +5,7 @@
 
     <groupId>com.jcalvopinam</groupId>
     <artifactId>sample-ehCache</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>sample-ehCache</name>
@@ -14,16 +14,15 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.3.RELEASE</version>
+        <version>2.3.3.RELEASE</version>
         <relativePath/>
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <ehcache-core.version>2.6.5</ehcache-core.version>
-        <lombok.version>1.18.6</lombok.version>
+        <java.version>11</java.version>
+        <lombok.version>1.18.12</lombok.version>
     </properties>
 
     <dependencies>
@@ -49,8 +48,7 @@
         <!-- ehcache dependency -->
         <dependency>
             <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache-core</artifactId>
-            <version>${ehcache-core.version}</version>
+            <artifactId>ehcache</artifactId>
         </dependency>
 
         <!-- h2 database dependency -->

@@ -23,15 +23,30 @@
  *
  */
 
-package com.jcalvopinam.exception;
+package com.jcalvopinam.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.Locale;
 
 /**
- * @author Juan Calvopina
+ * Created by juan.calvopina on 30/03/2017.
  */
-public class TaskException extends RuntimeException {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class TaskDTO {
 
-    public TaskException(final String message) {
-        super(message);
+    private Integer id;
+    private String taskName;
+    private String status;
+
+    public String getTaskName() {
+        return taskName.toUpperCase(Locale.ENGLISH);
     }
 
 }

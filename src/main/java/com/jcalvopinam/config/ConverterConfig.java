@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2018. JUAN CALVOPINA M
+ * Copyright (c) 2020. JUAN CALVOPINA M
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +23,30 @@
  *
  */
 
-package com.jcalvopinam.exception;
+package com.jcalvopinam.config;
 
-/**
- * @author Juan Calvopina
- */
-public class TaskException extends RuntimeException {
+import com.jcalvopinam.converter.TaskDTOToTaskConverter;
+import com.jcalvopinam.converter.TaskToTaskDTOConverter;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-    public TaskException(final String message) {
-        super(message);
+@Configuration
+public class ConverterConfig implements WebMvcConfigurer {
+
+    private final TaskDTOToTaskConverter taskDTOToTaskConverter;
+    private final TaskToTaskDTOConverter taskToTaskDTOConverter;
+
+    public ConverterConfig(final TaskDTOToTaskConverter taskDTOToTaskConverter,
+                           final TaskToTaskDTOConverter taskToTaskDTOConverter) {
+        this.taskDTOToTaskConverter = taskDTOToTaskConverter;
+        this.taskToTaskDTOConverter = taskToTaskDTOConverter;
+    }
+
+    @Override
+    public void addFormatters(final FormatterRegistry registry) {
+        registry.addConverter(taskDTOToTaskConverter);
+        registry.addConverter(taskToTaskDTOConverter);
     }
 
 }

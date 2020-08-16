@@ -5,10 +5,10 @@
 
     <!-- It configuration has 100 items as maximum that can be stored in memory,
      with a time to live of 5 minutes (300 seconds). -->
-    <cache name="taskFindAll"
+    <cache name="tasks"
            maxElementsInMemory="100" eternal="false"
            overflowToDisk="false"
-           timeToLiveSeconds="300" timeToIdleSeconds="0"
+           timeToLiveSeconds="6000" timeToIdleSeconds="0"
            memoryStoreEvictionPolicy="LFU" transactionalMode="off">
     </cache>
 

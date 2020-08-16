@@ -1,78 +1,31 @@
 {
   "info": {
-    "_postman_id": "0f1ad5e5-b06e-f89e-2f07-7cb242632e9a",
+    "_postman_id": "d3249f5c-0013-49c2-a07d-fcb8179316ca",
     "name": "sample-ehcache",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "http://localhost:8080/sample-ehcache/task/5001",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "body": {},
-        "url": {
-          "raw": "http://localhost:8080/sample-ehcache/task/5001",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "sample-ehcache",
-            "task",
-            "5001"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "localhost:8080/sample-ehcache/task",
+      "name": "search all tasks",
       "request": {
         "method": "GET",
         "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
         "url": {
-          "raw": "localhost:8080/sample-ehcache/task",
+          "raw": "localhost:8080/sample-ehcache/tasks",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
             "sample-ehcache",
-            "task"
+            "tasks"
           ]
         }
       },
       "response": []
     },
     {
-      "name": "http://localhost:8080/sample-ehcache/task",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "body": {},
-        "url": {
-          "raw": "http://localhost:8080/sample-ehcache/task",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "sample-ehcache",
-            "task"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "http://localhost:8080/sample-ehcache/task",
+      "name": "create new task",
       "request": {
         "method": "POST",
         "header": [
@@ -83,10 +36,13 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"taskName\":\"Example\",\r\n    \"status\":\"In progress\"\r\n}"
+          "raw": "{\r\n    \"taskName\":\"Example\",\r\n    \"status\":\"To Do\"\r\n}",
+          "options": {
+            "raw": {}
+          }
         },
         "url": {
-          "raw": "http://localhost:8080/sample-ehcache/task",
+          "raw": "http://localhost:8080/sample-ehcache/tasks",
           "protocol": "http",
           "host": [
             "localhost"
@@ -94,14 +50,35 @@
           "port": "8080",
           "path": [
             "sample-ehcache",
-            "task"
+            "tasks"
           ]
         }
       },
       "response": []
     },
     {
-      "name": "localhost:8080/sample-ehcache/task/5001",
+      "name": "search by taskName",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/sample-ehcache/tasks/example",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "sample-ehcache",
+            "tasks",
+            "example"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update a task",
       "request": {
         "method": "PUT",
         "header": [
@@ -112,22 +89,85 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"taskName\":\"New Example\",\n  \"status\":\"To do\"\n}"
+          "raw": "{\n  \"taskName\":\"Example\",\n  \"status\":\"In progress\"\n}",
+          "options": {
+            "raw": {}
+          }
         },
         "url": {
-          "raw": "localhost:8080/sample-ehcache/task/5001",
+          "raw": "localhost:8080/sample-ehcache/tasks/5001",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
             "sample-ehcache",
-            "task",
+            "tasks",
             "5001"
           ]
         }
       },
       "response": []
+    },
+    {
+      "name": "delete a task",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [],
+          "options": {
+            "formdata": {}
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/sample-ehcache/tasks/5001",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "sample-ehcache",
+            "tasks",
+            "5001"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "clear cache",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [],
+          "options": {
+            "formdata": {}
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/sample-ehcache/tasks/clear-cache",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "sample-ehcache",
+            "tasks",
+            "clear-cache"
+          ]
+        }
+      },
+      "response": []
     }
-  ]
+  ],
+  "protocolProfileBehavior": {}
 }

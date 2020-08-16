@@ -25,15 +25,24 @@
 
 package com.jcalvopinam.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created by juan.calvopina on 29/03/2017.
  */
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "TASK")
 public class Task {
@@ -42,7 +51,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "TASK_NAME")
+    @Column(name = "TASK_NAME", nullable = false)
     private String taskName;
 
     @Column(name = "STATUS")

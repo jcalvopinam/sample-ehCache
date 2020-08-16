@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2018. JUAN CALVOPINA M
+ * Copyright (c) 2020. JUAN CALVOPINA M
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,22 +23,31 @@
  *
  */
 
-package com.jcalvopinam.dto;
+package com.jcalvopinam.config;
 
-import lombok.Data;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.ehcache.EhCacheCacheManager;
+import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 
-/**
- * Created by juan.calvopina on 30/03/2017.
- */
-@Data
-public class TaskDto {
+import java.util.Objects;
 
-    private String taskName;
-    private String status;
+@Configuration
+public class EhCacheConfig {
 
-    @Override
-    public String toString() {
-        return String.format("TaskDto{taskName='%s', status=%s}", taskName, status);
+    @Bean
+    public CacheManager cacheManager() {
+        return new EhCacheCacheManager(Objects.requireNonNull(ehCacheCacheManager().getObject()));
+    }
+
+    @Bean
+    public EhCacheManagerFactoryBean ehCacheCacheManager() {
+        final EhCacheManagerFactoryBean cacheManagerFactoryBean = new EhCacheManagerFactoryBean();
+        cacheManagerFactoryBean.setConfigLocation(new ClassPathResource("ehcache.xml"));
+        cacheManagerFactoryBean.setShared(true);
+        return cacheManagerFactoryBean;
     }
 
 }
